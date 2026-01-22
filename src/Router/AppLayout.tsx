@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+
 import Navigation from "../Components/Navigation/Navigation";
 
 const AppLayout = () => {
@@ -12,4 +13,4 @@ const AppLayout = () => {
   );
 }
 
-export default AppLayout; 
+export default AppLayout;

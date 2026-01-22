@@ -11,6 +11,7 @@ type PageComponentModule = {
 type PageMetaModule = {
   name: string;
   path: string;
+  index: number;
 };
 
 const pageModules = import.meta.glob<PageComponentModule>(
@@ -42,8 +43,14 @@ const routes = Object.entries(pageModules).map(([filePath, module]) => {
   return {
     path: meta.path,
     element: <module.default />,
+    handle: {
+      navName: meta.name,
+      index: meta.index
+    },
   };
 });
+
+routes.sort((a, b) => a.handle.index - b.handle.index);
 
 export const router: RouteObject[] = [
   {
@@ -52,6 +59,6 @@ export const router: RouteObject[] = [
     errorElement: <ErrorPage />,
     children: routes,
   }
-]
+];
 
 console.log("Router Configured:", router);
