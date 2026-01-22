@@ -5,7 +5,7 @@ import { router } from './Router/Router';
 import { createBrowserRouter } from 'react-router';
 
 const routes = createBrowserRouter(router, {
-  basename: '/faizaan-art_app-portfolio', // base path for github pages - i have to hard code this otherwise ill get soft
+  basename: import.meta.env.BASE_URL
 });
 
 function App() {
