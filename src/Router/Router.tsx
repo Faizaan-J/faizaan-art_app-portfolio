@@ -53,3 +53,5 @@ export const router: RouteObject[] = [
     children: routes,
   }
 ]
+
+console.log("Router Configured:", router);
