@@ -7,6 +7,7 @@ import { createBrowserRouter } from 'react-router';
 const routes = createBrowserRouter(router, {
   basename: import.meta.env.BASE_URL
 });
+console.log("BASEURL:", import.meta.env.BASE_URL);
 
 function App() {
 
