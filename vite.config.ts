@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react'
 import { ghPages } from 'vite-plugin-gh-pages'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), ghPages()],
-  base: "/faizaan-art_app-portfolio"
+export default defineConfig(() => {
+  return {
+    plugins: [react(), ghPages()],
+    base: "/faizaan-art_app-portfolio/"
+  }
 })
