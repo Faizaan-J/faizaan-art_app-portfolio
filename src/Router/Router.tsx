@@ -45,7 +45,6 @@ const routes = Object.entries(pageModules).map(([filePath, module]) => {
   };
 });
 
-console.log("I GOON TO REACT-ROUTER:", routes);
 export const router: RouteObject[] = [
   {
     path: "/",
