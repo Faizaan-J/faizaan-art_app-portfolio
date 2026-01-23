@@ -3,13 +3,17 @@ import { router } from './Router/Router';
 import { createHashRouter } from 'react-router';
 
 import './App.css'
+import { AnimatePresence } from "motion/react";
 
 const routes = createHashRouter(router);
 
 function App() {
 
   return (
-    <RouterProvider router={routes} />
+    <AnimatePresence mode="wait">
+      <RouterProvider router={routes} />
+    </AnimatePresence>
+    
   )
 }
 

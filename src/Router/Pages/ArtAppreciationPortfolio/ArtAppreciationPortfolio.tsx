@@ -2,6 +2,7 @@ const ArtAppreciationPortfolio = () => {
     return (
         <>
             ArtAppreciationPortfolio
+            <span>ArtAppreciationPortfolio</span>
         </>
     )
 }
