@@ -13,6 +13,7 @@ const AppLayout = () => {
       <AnimatePresence mode="wait">
         <motion.main
           className="main"
+          data-path={location.pathname}
           initial={{ opacity: 0, transform: "translateX(-15%)" }}
           animate={{ opacity: 1, transform: "translateX(0%)" }}
           exit={{ opacity: 0, transform: "translateX(15%)" }}
