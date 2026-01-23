@@ -17,6 +17,7 @@
 
 .nav-button {
     transition: scale 200ms ease, translate 200ms ease;
+    list-style: none;
 
     .nav-link {
         color: white;

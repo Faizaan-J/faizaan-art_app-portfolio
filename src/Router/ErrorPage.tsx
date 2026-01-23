@@ -1,12 +1,23 @@
 import { useLocation } from "react-router";
 
+import NavButton from "../Components/Navigation/NavButton";
+
+import "./ErrorPage.css";
+
 const ErrorPage = () => {
     const location = useLocation();
 
     return (
         <>
-            <h1 style={{ color: "red", fontWeight: "bold" }}>Error</h1>
-            <p>Page <b style={{scale: 2, display: "inline-block"}}>{location.pathname}</b> does not exist.</p>
+            <h1 className="error-title">Error</h1>
+            <ul className="error-message">
+                <li><span>Page </span></li>
+                <li className="error-pathname"><span>{location.pathname}</span></li>
+                <li><span> does not exist.</span></li>
+            </ul>
+            <span className="back-to-home-container">
+                <NavButton to="/" name="Go back to home" />
+            </span>
         </>
     )
 }

@@ -1,0 +1,53 @@
+@keyframes error-glow { /* source: https://ficool2.github.io/HammerPlusPlus-Website/ | https://ficool2.github.io/HammerPlusPlus-Website/styles/main.css*/
+  from {
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+            filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+  }
+}
+
+.error-title {
+    color: rgb(255, 79, 79);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 3em;
+    animation: 300ms ease-in-out 0s infinite alternate none running error-glow;
+}
+
+.error-message {
+    list-style: none;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 1em;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.error-pathname {
+    font-size: 1em;
+    font-weight: bold;
+
+    span {
+        background: #333;
+        padding: 0.2em 0.4em;
+        border-radius: 0.3em;
+        color: white;
+        font-family: monospace;
+        font-size: 2em;
+        display: inline-block;
+        overflow-x: auto;
+        max-width: 15em;
+    }
+}
+
+.back-to-home-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    font-size: 2em;
+}
