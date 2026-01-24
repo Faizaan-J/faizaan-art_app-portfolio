@@ -1,6 +1,6 @@
 import { motion, stagger } from "motion/react";
 import getCurrentGradeFromGraduationYear from "./GraduationYear";
-import { graduationYear, school } from "../../../Constants";
+import { graduationYear, school } from "../../../Data/School";
 
 import Wave from "../../../Components/Wave/Wave";
 
