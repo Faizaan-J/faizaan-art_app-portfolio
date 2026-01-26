@@ -1,3 +1,4 @@
+export type ArtworkOrientation = "landscape" | "portrait";
 export type Artwork = {
     id: string;
     title: string;
@@ -6,7 +7,9 @@ export type Artwork = {
     assignment: string;
     description: string;
     animationVariant?: "fadeInLeft" | "fadeInDown" | "fadeInUp";
+    orientation: ArtworkOrientation;
 };
+
 
 export const artworks: Artwork[] = [
     {
@@ -16,7 +19,8 @@ export const artworks: Artwork[] = [
         "assignment": "Personality Project",
         "medium": "Color Pencils",
         "description": "Im writing this later",
-        "animationVariant": "fadeInLeft"
+        "animationVariant": "fadeInLeft",
+        "orientation": "portrait"
     },
     {
         "id": "electric-passage",
@@ -25,7 +29,8 @@ export const artworks: Artwork[] = [
         "assignment": "Space In Perspective Project",
         "medium": "Water Color",
         "description": "Im writing this later",
-        "animationVariant": "fadeInDown"
+        "animationVariant": "fadeInDown",
+        "orientation": "landscape"
     },
     {
         "id": "sphinx-of-hatshepsut",
@@ -34,6 +39,7 @@ export const artworks: Artwork[] = [
         "assignment": "MET Project",
         "medium": "Pencil Long Study",
         "description": "Im writing this later",
-        "animationVariant": "fadeInUp"
+        "animationVariant": "fadeInUp",
+        "orientation": "landscape"
     }
 ]

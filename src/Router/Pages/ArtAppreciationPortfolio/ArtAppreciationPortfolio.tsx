@@ -2,8 +2,10 @@ import { motion, stagger } from "motion/react";
 import { artworks } from "../../../Data/Artworks";
 
 import ArtCard from "../../../Components/ArtCard/ArtCard";
+import ArtModal from "../../../Components/ArtModal/ArtModal";
 
 import "./ArtAppreciationPortfolio.css";
+import { useState } from "react";
 
 const fadeInDown = {
     hidden: { opacity: 0, y: -20 },
@@ -27,13 +29,17 @@ const animation = { type: "spring" as const, stiffness: 100, damping: 15 }
 
 type AnimationKey = keyof typeof animations;
 
-const createArtworkCards = () => {
+const createArtworkCards = (setChosenArtwork: (id: string) => void) => {
     return artworks.map((artwork, index) => (
-        <ArtCard title={artwork.title} imageSrc={artwork.imageSrc} assignment={artwork.assignment} medium={artwork.medium} variants={animations[(artwork.animationVariant as AnimationKey) || 'fadeInDown']} transition={animation} className={artwork.id} key={index} />
+        <ArtCard layout layoutId={artwork.id} title={artwork.title} imageSrc={artwork.imageSrc} setChosenArtwork={setChosenArtwork} assignment={artwork.assignment} medium={artwork.medium} variants={animations[(artwork.animationVariant as AnimationKey) || 'fadeInDown']} transition={animation} id={artwork.id} key={index} />
     ));
 }
 
 const ArtAppreciationPortfolio = () => {
+    const [chosenArtworkId, setChosenArtworkId] = useState<string | null>(null);
+
+    const setChosenArtworkIdNull = () => setChosenArtworkId(null);
+
     return (
         <>
             <motion.h1
@@ -54,8 +60,9 @@ const ArtAppreciationPortfolio = () => {
                 transition={animation}
                 className="art-grid"
             >
-                {createArtworkCards()}
+                {createArtworkCards(setChosenArtworkId)}
             </motion.div>
+            <ArtModal chosenId={chosenArtworkId} setChosenIdNull={setChosenArtworkIdNull} />
         </>
     )
 }
