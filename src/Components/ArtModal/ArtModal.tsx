@@ -8,12 +8,13 @@ import type { Artwork } from "../../Data/Artworks";
 
 import "./ArtModal.css";
 
+type ChosenId = string | null;
 interface PropTypes {
-    chosenId: string | null;
+    chosenId: ChosenId;
     setChosenIdNull?: () => void;
 }
 
-const getPropertyById = (id: string | null, property: keyof Artwork): string | undefined => {
+const getPropertyById = (id: ChosenId, property: keyof Artwork): string | undefined => {
     if (id === null) return undefined;
     const artwork = artworks.find((artwork: Artwork) => artwork.id === id);
     return artwork ? artwork[property] : undefined;
@@ -23,6 +24,15 @@ const fadeInDown = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 }
 };
+
+const createPFromNewline = (chosenId: ChosenId) => {
+    const description = getPropertyById(chosenId, "description") || "";
+    const paragraphs = description.split("\n").filter(Boolean);
+
+    return paragraphs.map((paragraph, index) => {
+        return <motion.p key={index} className="art-description" variants={fadeInDown}>{paragraph}</motion.p>
+    })
+}
 
 const ArtModal = ({ chosenId, setChosenIdNull }: PropTypes) => {
 
@@ -65,9 +75,7 @@ const ArtModal = ({ chosenId, setChosenIdNull }: PropTypes) => {
                             <motion.h2 variants={fadeInDown} className="art-metadata">
                                 {getPropertyById(chosenId, "medium") || ""} {medium && assignment && "\u00B7"} {getPropertyById(chosenId, "assignment") || ""}
                             </motion.h2>
-                            <motion.p variants={fadeInDown} className="art-description">
-                                {getPropertyById(chosenId, "description") || ""}
-                            </motion.p>
+                            {createPFromNewline(chosenId)}
                         </motion.div>
                     </motion.div>
                 </FocusTrap>
