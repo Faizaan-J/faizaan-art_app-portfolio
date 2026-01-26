@@ -10,10 +10,8 @@ const NavButton = ({ to, name }: PropTypes) => {
     const isActive = location.pathname === to;
 
     return (
-        <li className={`nav-button${isActive ? " active" : ""}`}>
-            <Link className="nav-link" to={to}>{name}</Link>
-        </li>
-    )
+        <Link className={`nav-link${isActive ? " active" : ""}`} to={to}>{name}</Link>
+    );
 }
 
 export default NavButton;

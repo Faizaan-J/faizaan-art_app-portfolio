@@ -15,7 +15,10 @@ const createNavButtonsFromRouter = () => {
     return rootRoute.children.map((route, index) => {
         if (!route.path || !route.handle || typeof route.handle.navName !== "string") return null;
 
-        return <NavButton key={index} to={route.path} name={route.handle.navName} />;
+        return (
+            <li className="nav-li" key={index}>
+                <NavButton key={index} to={route.path} name={route.handle.navName} />
+            </li>);
     });
 };
 
