@@ -45,6 +45,24 @@ const ArtModal = ({ chosenId, setChosenIdNull }: PropTypes) => {
         };
     }, [chosenId]);
 
+    useEffect(() => {
+        const handleMouseUp = (event: MouseEvent) => {
+            if (event.target instanceof HTMLElement && event.target.classList.contains("modal-background")) {
+                if (setChosenIdNull) {
+                    setChosenIdNull();
+                }
+            }
+        };
+
+        if (chosenId) {
+            document.addEventListener("mouseup", handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [chosenId, setChosenIdNull]);
+
     const medium = getPropertyById(chosenId, "medium");
     const assignment = getPropertyById(chosenId, "assignment");
 
